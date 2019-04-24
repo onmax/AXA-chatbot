@@ -19,7 +19,6 @@ class BotAdapterMs {
 		const extra = new Object();
 		extra.text_message = ctx.activity.text;
 		const ev = new Event(ctx.activity.from.id, "dummy", extra);
-		
 		await this.handler(ev).then(msg => {
 		    return ctx.sendActivity(msg);
 		});
