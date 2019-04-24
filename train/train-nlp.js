@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = async function trainnlp(manager, say) {
+module.exports = async function trainnlp(manager) {
   if (fs.existsSync('./model.nlp')) {
     manager.load('./model.nlp');
     return;
