@@ -56,6 +56,26 @@ module.exports = async function trainnlp(manager) {
     nameEntity.addAfterLastCondition('es', 'es');
     nameEntity.addAfterLastCondition('es', 'llamo');
 
+    const dniEntity = manager.addTrimEntity('DNI');
+    dniEntity.addAfterLastCondition('es','dni');
+    dniEntity.addAfterLastCondition('es','es');
+
+    const affectedEntity = manager.addTrimEntity('naffected');
+    affectedEntity.addAfterLastCondition('es','afectados');
+    affectedEntity.addAfterLastCondition('es','son');
+    affectedEntity.addAfterLastCondition('es','sido');
+    affectedEntity.addAfterLastCondition('es','sufrido');
+
+
+    const insuranceEntity = manager.addTrimEntity('ninsurance');
+    insuranceEntity.addAfterLastCondition('es','es');
+    
+
+    const addressEntity = manager.addTrimEntity('address');
+    addressEntity.addAfterLastCondition('es','en');
+    addressEntity.addAfterLastCondition('es','es');
+
+
     manager.slotManager.addSlot('name', 'name', true);
     manager.slotManager.addSlot('DNI','userID', true);
     manager.slotManager.addSlot('naffected','affected',true);
