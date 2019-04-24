@@ -5,8 +5,8 @@ const trainnlp = require('./train/train-nlp');
 
 const manager = new NlpManager({languages: ['es']});
 (async () => {
-    await trainnlp(nlpManager);
+    await trainnlp(manager);
     console.log("Starting up bot!");
     const bot = new Bot(manager);
-    new BotAdapterTgm(bot.processMessage).start();
+    new BotAdapterTgm(bot.getProcessFun()).start();
 })();
