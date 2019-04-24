@@ -40,11 +40,12 @@ module.exports = async function trainnlp(manager) {
     // Address
     manager.addDocument('es', "Mi dirección es %address%", 'address'); 
     manager.addDocument('es', "Es %address%", 'address'); 
+    manager.addDocument('es', "%address%", 'address'); 
 
     // Help
-    manager.addDocument('es', "Necesito ayuda", 'agent.help');
-    manager.addDocument('es', "Ayuda", 'agent.help');
-    manager.addDocument('es', "Tengo una duda", 'agent.help');
+    manager.addDocument('es', "Necesito ayuda", 'help');
+    manager.addDocument('es', "Ayuda", 'help');
+    manager.addDocument('es', "Tengo una duda", 'help');
 
     // Cancel
     manager.addDocument('es', "Adios", 'cancel');
@@ -82,7 +83,15 @@ module.exports = async function trainnlp(manager) {
     manager.slotManager.addSlot('ninsurance','insurance',true);
     manager.slotManager.addSlot('address','address',true);
 
-    manager.addAnswer('es', 'agent.user', 'Hola {{ name }}');
+    manager.addAnswer('es', 'greetings', 'Hola');
+    manager.addAnswer('es', 'accident', 'Vaya, lo sentimos 😢. Necesitamos más información sobre el accidente. ¿Cuál es tu DNI?');
+    manager.addAnswer('es', 'DNI', 'De acuerdo, ¿y como te llamas?');
+    manager.addAnswer('es', 'name', 'De acuerdo, {{ name }} y ¿cuántas personas se han visto afectadas?');
+    manager.addAnswer('es', 'affected', 'Vaya… Ya estamos manos a la obra. ¿Cuál es tu número de poliza?');
+    manager.addAnswer('es', 'insurance', '¿Y cuál es tu dirección?');
+    manager.addAnswer('es', 'address', '¿Puedes enviar una foto del incidente?');
+    manager.addAnswer('es', 'help', '¿En qué quieres que te ayudemos?');
+    manager.addAnswer('es', 'cancel', 'De acuerdo');
 
     await manager.train();
 };
