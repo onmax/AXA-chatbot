@@ -11,7 +11,7 @@ class Bot {
 	return async (event) => {
 	    const text_message = event.extra.text_message;
             const result = await man.process(text_message);
-	    console.log(result);
+        console.log(result);
 	    return result.answer;
 	};
     }

@@ -83,7 +83,7 @@ module.exports = async function trainnlp(manager) {
     manager.slotManager.addSlot('ninsurance','insurance',true);
     manager.slotManager.addSlot('address','address',true);
 
-    manager.addAnswer('es', 'greetings', 'Hola {{ name }}');
+    manager.addAnswer('es', 'greetings', 'Hola');
     manager.addAnswer('es', 'accident', 'Vaya, lo sentimos 😢. Necesitamos más información sobre el accidente. ¿Cuál es tu DNI?');
     manager.addAnswer('es', 'DNI', 'De acuerdo, ¿y como te llamas?');
     manager.addAnswer('es', 'name', 'De acuerdo, {{ name }} y ¿cuántas personas se han visto afectadas?');
