@@ -11,14 +11,16 @@
    7: Photo incident
    8: Photo parte
 */
-const states = ['greetings', 'accident', 'DNI', 'name', 'naffected', 'insurance', 'address', 'photo', 'photo_doc',
+const states = ['greetings', 'accident', 'DNI', 'name', 'naffected', 'insurance', 'address', 'photo', 'photo_doc', 'end',
         'cancel', 'help'
     ];
 const redis = require('redis.js');
 
-function checkState(state, future_state) {
+export  {checkState};
 
-    switch (state) {
+function checkState(statepos, future_state) {
+
+    switch (states[state]) {
         case states[0]:
             return future_state === (states[10] || states[9] || states[1]) ? future_state : null ;
         case states[1]:
@@ -35,6 +37,8 @@ function checkState(state, future_state) {
             return future_state === (states[10] || states[9] || states[3]) ? future_state : null;
         case states[7]:
             return future_state === (states[10] || states[9] || states[3]) ? future_state : null;
+        case states[8]:
+            return future_state === (states[10] || states[9] || states[8]) ? future_state : null;
         default:
             return null;
     }

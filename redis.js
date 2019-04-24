@@ -18,7 +18,7 @@ module.exports.KEY_MATRICULA = 'matricula';
 module.exports.KEY_MODEL = 'car_model';
 module.exports.KEY_DRIVER_LICENSE_YEAR = 'driver_license_year';
 module.exports.KEY_VEHICLE_DATA = 'key_vehicle_data';
-
+export {setValue}
 
 
 function setValue(chatid, key, value) {
