@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/onmax/AXA-chatbot#readme",
   "dependencies": {
-    "node-nlp": "^3.0.3"
+    "botbuilder": "^4.3.4",
+    "node-nlp": "^3.0.3",
+    "restify": "^8.3.0"
   }
 }
