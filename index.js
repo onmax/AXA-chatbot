@@ -1,5 +1,13 @@
 const { Bot } = require('./bot');
-const { BotAdapterMs } = require('./bot-adapter-ms');
-console.log("Starting up bot!");
-const bot = new Bot();
-new BotAdapterMs(bot.processMessage).start();
+const { BotAdapterTgm } = require('./bot-adapter-tgm');
+const { NlpManager } = require('node-nlp');
+const trainnlp = require('./train/train-nlp');
+
+
+const manager = new NlpManager({languages: ['es']});
+(async () => {
+    await trainnlp(nlpManager);
+    console.log("Starting up bot!");
+    const bot = new Bot(manager);
+    new BotAdapterTgm(bot.processMessage).start();
+})();
