@@ -7,7 +7,7 @@ module.exports = async function trainnlp(manager) {
 	return;
     }
     // Greetings
-    manager.addDocument('es', "Hola", 'greeting');
+    manager.addDocument('es', "Hola", 'greetings');
     manager.addDocument('es', "Buenos días", 'greetings');
     manager.addDocument('es', "Buenas tardes", 'greetings');
     manager.addDocument('es', "Buenas noches", 'greetings');
@@ -30,6 +30,7 @@ module.exports = async function trainnlp(manager) {
     // Number of affected people
     manager.addDocument('es', "%naffected%", 'affected');
     manager.addDocument('es', 'Se han visto afectados %naffected%','affected');
+    manager.addDocument('es', 'Hay %naffected% afectados','affected');
 
     // Number of insurance
     manager.addDocument('es', "%ninsurance%", 'insurance'); 
