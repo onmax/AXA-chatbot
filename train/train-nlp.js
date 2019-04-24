@@ -12,9 +12,9 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('es', "Buenas noches", 'agent.greeting');
 
   // Name and lastname
-  manager.addDocument('es', "Mi nombre es %name% %lastname%", 'agent.user');
-  manager.addDocument('es', "Me llamo %name% %lastname%", 'agent.user');
-  manager.addDocument('es', "Soy %name% %lastname%", 'agent.user');
+  manager.addDocument('es', "Mi nombre es %name%", 'agent.user');
+  manager.addDocument('es', "Me llamo %name%", 'agent.user');
+  manager.addDocument('es', "Soy %name%", 'agent.user');
 
   // User id.
   manager.addDocument('es', "Mi dni es %userID%", 'agent.user');
