@@ -48,5 +48,13 @@ module.exports = async function trainnlp(manager) {
     manager.addDocument('es', "Cancelar", 'agent.cancel');
     manager.addDocument('es', "Bye", 'agent.cancel');
 
+    const nameEntity = manager.addTrimEntity('name');
+    nameEntity.addAfterLastCondition('es', 'es');
+    nameEntity.addAfterLastCondition('es', 'llamo');
+
+    manager.slotManager.addSlot('agent.user', 'name', true);
+
+    manager.addAnswer('es', 'agent.user', 'Hola {{ name }}');
+
     await manager.train();
-}
+};

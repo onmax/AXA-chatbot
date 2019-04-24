@@ -12,9 +12,7 @@ class Bot {
 	    const text_message = event.extra.text_message;
             const result = await man.process(text_message);
 	    console.log(result);
-            return result.score > this.threshold && result.answer
-                ? result.answer
-                : "Lo siento no te he entendido";
+	    return result.answer;
 	};
     }
 }
