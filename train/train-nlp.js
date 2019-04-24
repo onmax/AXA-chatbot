@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 module.exports = async function trainnlp(manager) {
+
     if (fs.existsSync('./model.nlp')) {
 	manager.load('./model.nlp');
 	return;
@@ -48,5 +49,13 @@ module.exports = async function trainnlp(manager) {
     manager.addDocument('es', "Cancelar", 'agent.cancel');
     manager.addDocument('es', "Bye", 'agent.cancel');
 
+
+    //Recognizer
+  const miNombre = manager.addTrimEntity('name');
+  miNombre.addAfter('es','llamo');
+  miNombre.addAfter('es','nombre');
+  miNombre.addAfter('es', 'soy');
+
     await manager.train();
 }
+
